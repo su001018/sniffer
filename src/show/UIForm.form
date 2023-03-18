@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="src.show.UIForm">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1224" height="1038"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="b75e" binding="headerPanel" layout-manager="GridLayoutManager" row-count="3" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="2" indent="0" use-parent-layout="false">
+            <minimum-size width="1200" height="100"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-6697007"/>
+          <enabled value="false"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <component id="6ec44" class="javax.swing.JLabel" binding="protocolLabel">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="DialogInput" size="20" style="1"/>
+              <foreground color="-11251368"/>
+              <text value="协议"/>
+            </properties>
+          </component>
+          <component id="7e8b2" class="javax.swing.JLabel" binding="sipLabel">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="DialogInput" size="20" style="1"/>
+              <foreground color="-11251368"/>
+              <text value="源IP"/>
+            </properties>
+          </component>
+          <component id="62993" class="javax.swing.JTextField" binding="sipTextField">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="200" height="40"/>
+                <preferred-size width="200" height="40"/>
+                <maximum-size width="200" height="40"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-15990807"/>
+              <font size="18"/>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="1ea74" class="javax.swing.JLabel" binding="dipLabel">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="94" height="30"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font name="DialogInput" size="20" style="1"/>
+              <foreground color="-11251368"/>
+              <text value="目的IP"/>
+            </properties>
+          </component>
+          <component id="2bde7" class="javax.swing.JTextField" binding="dipTextField">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="200" height="40"/>
+                <preferred-size width="200" height="40"/>
+                <maximum-size width="200" height="40"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-15990807"/>
+              <font size="18"/>
+            </properties>
+          </component>
+          <component id="20a76" class="javax.swing.JLabel" binding="deviceSelectLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="DialogInput" size="20" style="1"/>
+              <foreground color="-11251368"/>
+              <text value="网卡"/>
+            </properties>
+          </component>
+          <component id="9cb5c" class="javax.swing.JComboBox" binding="protocolComboBox">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="200" height="40"/>
+                <preferred-size width="200" height="30"/>
+                <maximum-size width="200" height="40"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-393729"/>
+              <font name="Courier New" size="16" style="0"/>
+              <foreground color="-16121862"/>
+            </properties>
+          </component>
+          <component id="15668" class="javax.swing.JComboBox" binding="devicesComboBox">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <minimum-size width="350" height="40"/>
+                <preferred-size width="350" height="30"/>
+                <maximum-size width="350" height="40"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-393729"/>
+              <font name="Courier New" size="16" style="0"/>
+              <foreground color="-16121862"/>
+            </properties>
+          </component>
+          <component id="44211" class="javax.swing.JTextField" binding="keywordTextField">
+            <constraints>
+              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <minimum-size width="200" height="40"/>
+                <preferred-size width="200" height="40"/>
+                <maximum-size width="200" height="40"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-15990807"/>
+              <font size="18"/>
+            </properties>
+          </component>
+          <component id="89aee" class="javax.swing.JLabel" binding="keywordLabel">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="DialogInput" size="20" style="1"/>
+              <foreground color="-11251368"/>
+              <text value="关键字"/>
+            </properties>
+          </component>
+          <component id="6a780" class="javax.swing.JButton">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-393729"/>
+              <borderPainted value="false"/>
+              <font size="18"/>
+              <foreground color="-16132220"/>
+              <text value="开始"/>
+            </properties>
+          </component>
+          <component id="43252" class="javax.swing.JButton" binding="startButton">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-393729"/>
+              <borderPainted value="false"/>
+              <font size="18"/>
+              <foreground color="-16132220"/>
+              <text value="开始"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="bf4e6" binding="bodyPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="1200" height="600"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16212876"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <grid id="f382" binding="formPanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="800" height="700"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16132220"/>
+              <enabled value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <hspacer id="c8c5f">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <vspacer id="f4e35">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <scrollpane id="8713d" binding="tableScrollPanel">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <minimum-size width="800" height="700"/>
+                    <preferred-size width="729" height="428"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-393729"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="f9b28" class="javax.swing.JTable" binding="packetsTable">
+                    <constraints/>
+                    <properties>
+                      <autoCreateColumnsFromModel value="true"/>
+                      <autoCreateRowSorter value="true"/>
+                      <background color="-16132220"/>
+                      <columnSelectionAllowed value="true"/>
+                      <enabled value="false"/>
+                      <font size="16"/>
+                      <foreground color="-721409"/>
+                      <gridColor color="-393729"/>
+                      <rowSelectionAllowed value="true"/>
+                      <selectionBackground color="-393729"/>
+                      <selectionForeground color="-393729"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+          <vspacer id="bed88">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <grid id="f719c" binding="detailPanel" layout-manager="GridLayoutManager" row-count="2" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <minimum-size width="400" height="700"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-16092591"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="97a12" class="javax.swing.JLabel" binding="detailLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-393729"/>
+                  <font size="24"/>
+                  <foreground color="-393729"/>
+                  <text value="详细信息"/>
+                </properties>
+              </component>
+              <vspacer id="d0ea7">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </vspacer>
+              <scrollpane id="fedfd" binding="detailScrollPanel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <background color="-6697007"/>
+                  <foreground color="-15942726"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="b6af5" class="javax.swing.JTextArea" binding="detailTextArea">
+                    <constraints/>
+                    <properties>
+                      <background color="-16092591"/>
+                      <enabled value="false"/>
+                      <font size="18"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="1b60a" binding="countPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <minimum-size width="1200" height="100"/>
+          </grid>
+        </constraints>
+        <properties>
+          <background color="-16283572"/>
+        </properties>
+        <border type="none"/>
+        <children/>
+      </grid>
+    </children>
+  </grid>
+</form>
