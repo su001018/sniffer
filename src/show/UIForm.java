@@ -2,14 +2,13 @@ package src.show;
 
 import jpcap.NetworkInterface;
 import src.controll.NetworkCard;
+import src.controll.PacketAnalyze;
 import src.controll.PacketCapture;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
+import java.util.HashMap;
 import java.util.Map;
 
 public class UIForm extends JFrame{
@@ -35,11 +34,15 @@ public class UIForm extends JFrame{
     private JTextField keywordTextField;
     private JTextField sipTextField;
     private JButton startButton;
+    private JButton stopButton;
+    private JTextArea countTextArea;
 
     //抓包进程
     PacketCapture packetCapture;
     //现有线程
     Thread run;
+    //获取统计信息线程
+    Thread count;
     //网卡设备
     NetworkInterface[] devices;
 
@@ -50,11 +53,16 @@ public class UIForm extends JFrame{
     //包的详细信息
     Map<String,String> detail;
     //协议类型
-    String[] protocolTypes={"TCP","UDP","ICMP","ARP","其他"};
+    String[] protocolTypes={"全部","TCP","UDP","ICMP","ARP","IP","其他"};
+    //筛选条件
+    Map<String,String>filter;
 
     public UIForm() {
+        filter=new HashMap<>();
         packetCapture=new PacketCapture();
         run=new Thread(packetCapture);
+        count=new Thread(new getCount());
+        count.start();
         devices= NetworkCard.getNetworkCards();
         tableModel=new DefaultTableModel(new Object[][]{},tableHeader);
         //绑定数据源
@@ -63,21 +71,27 @@ public class UIForm extends JFrame{
             NetworkInterface device=devices[i];
             devicesComboBox.addItem("no."+i+" "+device.description);
         }
+        if(devices.length>=3){
+            devicesComboBox.setSelectedIndex(2);
+        }else devicesComboBox.setSelectedIndex(0);
+
+        for(int i=0;i<protocolTypes.length;i++){
+            protocolComboBox.addItem(protocolTypes[i]);
+        }
+        protocolComboBox.setSelectedIndex(0);
 
         //网卡更换监听方法
         devicesComboBox.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange()==ItemEvent.SELECTED){
-                    packetCapture.setDevice(devices[devicesComboBox.getSelectedIndex()]);
-                    //更换网卡后结束原来线程并新建线程
-                    if(run.getState()== Thread.State.RUNNABLE){
-                        run.stop();
-                    }
-                    //清空原数据
-                    packetCapture.clearList();
-                    run=new Thread(packetCapture);
-                    run.start();
+//                    packetCapture.setDevice(devices[devicesComboBox.getSelectedIndex()]);
+//                    //更换网卡后结束原来线程
+//                    if(run.getState()== Thread.State.RUNNABLE){
+//                        run.stop();
+//                    }
+//                    //清空原数据
+//                    packetCapture.clearList();
                 }
             }
         });
@@ -100,6 +114,61 @@ public class UIForm extends JFrame{
                 }
             }
         });
+
+        //开始抓包
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(run.getState()!= Thread.State.TERMINATED){
+                    run.stop();
+                }
+                packetCapture.clearList();
+                packetCapture.setFilter(filter);
+                packetCapture.setDevice(devices[devicesComboBox.getSelectedIndex()]);
+                run=new Thread(packetCapture);
+                run.start();
+            }
+        });
+        //停止抓包
+        stopButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(run.getState()==Thread.State.RUNNABLE){
+                    run.stop();
+                }
+            }
+        });
+
+        //筛选协议
+        protocolComboBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange()==ItemEvent.SELECTED){
+                    filter.put("协议类型", String.valueOf(protocolComboBox.getSelectedItem()));
+                }
+            }
+        });
+        //源IP地址变化
+        sipTextField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                filter.put("源IP", sipTextField.getText().trim());
+            }
+        });
+        //目的IP地址变化
+        dipTextField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                filter.put("目的IP", dipTextField.getText().trim());
+            }
+        });
+        //关键字变化
+        keywordTextField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                filter.put("keyword", keywordTextField.getText().trim());
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -111,6 +180,26 @@ public class UIForm extends JFrame{
         frame.setVisible(true);
 
 
+    }
+
+    private class getCount implements Runnable{
+
+        @Override
+        public void run() {
+
+            while(true){
+                countTextArea.setText("");
+                String[] counts= PacketAnalyze.getCountMessage();
+                for(String count:counts){
+                    countTextArea.append(count+'\n');
+                }
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
 

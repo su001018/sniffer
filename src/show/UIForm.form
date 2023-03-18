@@ -141,7 +141,7 @@
               <text value="关键字"/>
             </properties>
           </component>
-          <component id="6a780" class="javax.swing.JButton">
+          <component id="6a780" class="javax.swing.JButton" binding="stopButton">
             <constraints>
               <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -149,8 +149,8 @@
               <background color="-393729"/>
               <borderPainted value="false"/>
               <font size="18"/>
-              <foreground color="-16132220"/>
-              <text value="开始"/>
+              <foreground color="-2680787"/>
+              <text value="结束"/>
             </properties>
           </component>
           <component id="43252" class="javax.swing.JButton" binding="startButton">
@@ -302,7 +302,27 @@
           <background color="-16283572"/>
         </properties>
         <border type="none"/>
-        <children/>
+        <children>
+          <scrollpane id="1790c">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="8313d" class="javax.swing.JTextArea" binding="countTextArea">
+                <constraints/>
+                <properties>
+                  <background color="-16283572"/>
+                  <editable value="true"/>
+                  <enabled value="false"/>
+                  <font size="18"/>
+                  <foreground color="-16283572"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
       </grid>
     </children>
   </grid>

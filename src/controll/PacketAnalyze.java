@@ -91,7 +91,7 @@ public class PacketAnalyze {
         ARPPacket arpPacket = (ARPPacket) packet;// 将 packet类转成 ARPPacket类;
         return new HashMap<String, String>() {{
             put("硬件类型", String.valueOf(arpPacket.hardtype));
-            put("协议类型", String.valueOf(arpPacket.prototype));
+            put("协议类型", "ARP");
             put("操作字段", String.valueOf(arpPacket.operation));
             put("IP首部", arpPacket.toString());// String toString: 返回描述此数据包的字符串;
             put("发送方硬件地址", (String) arpPacket.getSenderHardwareAddress());
@@ -110,7 +110,7 @@ public class PacketAnalyze {
             put("标志位MF:后面是否还有分片", String.valueOf(icmpPacket.more_frag));
             put("片偏移offset", String.valueOf(icmpPacket.offset));
             put("标识ident", String.valueOf(icmpPacket.ident));
-            put("协议类型", "ICMP报文");
+            put("协议类型", "ICMP");
             put("ICMP报文类型type", String.valueOf(icmpPacket.type));
             put("ICMP报文代码code", String.valueOf(icmpPacket.code));
             put("源IP", String.valueOf(icmpPacket.src_ip));
@@ -128,7 +128,7 @@ public class PacketAnalyze {
             put("标志位MF:后面是否还有分片", String.valueOf(udpPacket.more_frag));
             put("片偏移offset", String.valueOf(udpPacket.offset));
             put("标识ident", String.valueOf(udpPacket.ident));
-            put("协议类型", "UDP报文");
+            put("协议类型", "UDP");
             put("源端口src_port", String.valueOf(udpPacket.src_port));
             put("目的端口dst_port", String.valueOf(udpPacket.dst_port));
             put("UDP报文长度length", String.valueOf(udpPacket.length));
@@ -145,7 +145,7 @@ public class PacketAnalyze {
             put("标志位MF:后面是否还有分片", String.valueOf(tcpPacket.more_frag));
             put("片偏移offset", String.valueOf(tcpPacket.offset));
             put("标识ident", String.valueOf(tcpPacket.ident));
-            put("协议类型", "TCP报文");
+            put("协议类型", "TCP");
             put("源端口src_port", String.valueOf(tcpPacket.src_port));
             put("目的端口dst_port", String.valueOf(tcpPacket.dst_port));
             put("seq序号", String.valueOf(tcpPacket.sequence));
@@ -179,7 +179,7 @@ public class PacketAnalyze {
             put("时间戳usec(毫秒)", String.valueOf(ipPacket.usec));
             put("源IP", ipPacket.src_ip.getHostAddress());
             put("目的IP", ipPacket.dst_ip.getHostAddress());
-            put("协议类型", String.valueOf(ipPacket.protocol));
+            put("协议类型", "IP");
             put("优先权priority", String.valueOf(ipPacket.priority));
             put("生存时间hop", String.valueOf(ipPacket.hop_limit));
             put("标志位RF:保留位必须为false", String.valueOf(ipPacket.rsv_frag));
